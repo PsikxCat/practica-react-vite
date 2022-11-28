@@ -1,24 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { tasks as data } from './tasks';
+import React from 'react';
+import { PropTypes } from 'prop-types';
 
-export default function TaskList() {
-  const [tasks, setTasks] = useState([]);
-  useEffect(() => {
-    setTasks(data);
-  }, []);
+// se corto la importacion del array y se paso al componente App
+
+export function TaskList({ tasks }) {
+  if (tasks.length === 0) return <h1>No hay tareas...</h1>;
 
   const renderTasks = () => {
     return tasks.map(task => (
-      <div key={task.id}>
-        <h1>{task.title}</h1>
-        <p>{task.description}</p>
+      <div key={ task.id }>
+        <h1>{ task.title }</h1>
+        <p>{ task.description }</p>
       </div>
     ));
   };
 
   return (
-    <div>
+    <main>
         { renderTasks() }
-    </div>
+    </main>
   );
 }
+
+TaskList.propTypes = {
+  tasks: PropTypes.array
+};
