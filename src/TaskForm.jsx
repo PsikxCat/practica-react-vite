@@ -7,13 +7,7 @@ export function TaskForm({ createTask }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newTask = {
-      title,
-      id: 4,
-      description: 'Soy una nueva tarea'
-    };
-
-    createTask(newTask);
+    createTask(title);
   };
 
   return (

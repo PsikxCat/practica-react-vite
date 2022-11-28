@@ -6,8 +6,12 @@ import { TaskList } from './TaskList';
 export default function App() {
   const [tasks, setTasks] = useState([]);
 
-  function createTask(task) {
-    setTasks([...tasks, task]);
+  function createTask(taskTitle) {
+    setTasks([...tasks, {
+      title: taskTitle,
+      id: tasks.length + 1,
+      description: 'Nueva tarea'
+    }]);
   }
 
   useEffect(() => {
