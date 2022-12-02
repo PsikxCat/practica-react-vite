@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { tasks as data } from './data/tasks';
-import { TaskForm } from './components/TaskForm';
-import { TaskList } from './components/TaskList';
+import TaskForm from './components/TaskForm';
+import TaskList from './components/TaskList';
 
-export default function App() {
+function App() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
@@ -18,10 +18,16 @@ export default function App() {
     }]);
   }
 
+  function deleteTask(taskId) {
+    setTasks(tasks.filter(task => task.id !== taskId));
+  }
+
   return (
   <>
     <TaskForm createTask={ createTask }/>
-    <TaskList tasks={ tasks }/>
+    <TaskList tasks={ tasks } deleteTask={ deleteTask }/>
   </>
   );
 }
+
+export default App;
