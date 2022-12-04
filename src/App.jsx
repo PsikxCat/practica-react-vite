@@ -4,10 +4,12 @@ import TaskList from './components/TaskList';
 
 function App() {
   return (
-  <>
-    <TaskForm />
-    <TaskList />
-  </>
+  <section className='bg-zinc-900 h-screen'>
+    <div className="container mx-auto">
+      <TaskForm />
+      <TaskList />
+    </div>
+  </section>
   );
 }
 

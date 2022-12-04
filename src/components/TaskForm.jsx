@@ -20,28 +20,35 @@ function TaskForm() {
   };
 
   return (
-    <>
-      <form onSubmit={ handleSubmit }>
+    <div className='max-w-md mx-auto'>
+      <form
+        className='bg-slate-900 p-10 mb-4'
+        onSubmit={ handleSubmit }
+      >
+        <h1 className='text-2xl text-white font-bold mb-3'>
+          Crea tu tarea
+        </h1>
         <input
-          type="text"
-          placeholder='Escribe tu tarea...'
+          className='bg-slate-300 p-2 w-full mb-2'
           onChange={(e) => setTitle(e.target.value)}
           value={ title }
+          type="text"
+          placeholder='Escribe tu tarea...'
           autoFocus
-          />
-
+        />
         <textarea
-          cols="30" rows="5"
-          placeholder='Agrega descripción...'
+          className='bg-slate-300 p-2 w-full'
           onChange={(e) => setDescription(e.target.value)}
           value={ description }
+          cols="30" rows="3"
+          placeholder='Agrega descripción...'
         />
-
-        <button>
-          Guardar
+        <button
+          className='bg-indigo-500 rounded-md px-2 py-1 mt-4 hover:bg-indigo-400'>
+          Guardar tarea
         </button>
       </form>
-    </>
+    </div>
   );
 }
 
