@@ -1,8 +1,10 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import React, { useContext } from 'react';
 import TaskCard from './TaskCard';
+import { TaskContext } from '../context/TaskContext';
 
-function TaskList({ tasks, deleteTask }) {
+function TaskList() {
+  const { tasks } = useContext(TaskContext);
+
   if (tasks.length === 0) return <h1>No hay tareas...</h1>;
 
   const renderTasks = () => {
@@ -10,7 +12,6 @@ function TaskList({ tasks, deleteTask }) {
       <TaskCard
         task={task}
         key={task.id}
-        deleteTask={deleteTask}
       />
     ));
   };
@@ -21,10 +22,5 @@ function TaskList({ tasks, deleteTask }) {
     </main>
   );
 }
-
-TaskList.propTypes = {
-  tasks: PropTypes.array,
-  deleteTask: PropTypes.func
-};
 
 export default TaskList;
